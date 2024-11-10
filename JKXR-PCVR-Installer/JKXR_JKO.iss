@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "JKXR - Jedi Outcast"
-#define MyAppVersion "1.0.22"
+#define MyAppVersion "1.1.27"
 #define MyAppPublisher "Team Beef VR"
 #define MyAppURL "https://www.patreon.com/teambeef"
 #define MyAppExeName "openjo_sp.x86_64.exe"
@@ -10,7 +10,7 @@
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
 ; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
-AppId={{3B2C9382-66B4-48E6-B625-F567F350283D}
+AppId={{962B9188-98B6-4216-BEB8-C8BCF901C6D0}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
 ;AppVerName={#MyAppName} {#MyAppVersion}
@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Dev\Quest\JKXR\JKXR-PCVR-Installer
 OutputBaseFilename=JKXR_JKO_Setup
-Compression=lzma
+Compression=zip
 SolidCompression=yes
 WizardStyle=modern
 AlwaysShowDirOnReadyPage=yes
@@ -40,6 +40,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\jospgamex86_64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\TeamBeefVR.bat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\OpenAL32.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\rdjosp-vanilla_x86_64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKO\SDL2.dll"; DestDir: "{app}"; Flags: ignoreversion

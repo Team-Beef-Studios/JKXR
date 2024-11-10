@@ -1848,6 +1848,7 @@ void TBXR_FrameSetup()
 	VR_FrameSetup();
 
 	//Get controller state here
+	TBXR_updateProjections();
 	TBXR_GetHMDOrientation();
 	VR_HandleControllerInput();
 
@@ -1947,8 +1948,6 @@ void TBXR_submitFrame()
 		return;
 	}
 
-	TBXR_updateProjections();
-
 	//Calculate the maximum extent fov for use in culling in the engine (we won't want to cull inside this fov)
 	vr.fov_x = (fabs(gAppState.Views[0].fov.angleLeft) + fabs(gAppState.Views[1].fov.angleRight)) * 180.0f / M_PI;
 	vr.fov_y = (fabs(gAppState.Views[0].fov.angleUp) + fabs(gAppState.Views[0].fov.angleDown)) * 180.0f / M_PI;
@@ -1972,7 +1971,11 @@ void TBXR_submitFrame()
 
 		if (usingScreenLayer) {
 			usingScreenLayer = qfalse;
-			VR_ResetRenderer();
+			float configuredSuperSampling = Cvar_VariableValue("vr_super_sampling");
+			if (configuredSuperSampling != 0.0f && configuredSuperSampling != superSampling)
+			{
+				VR_ResetRenderer();
+			}
 		}
 
 		memset(&projection_layer, 0, sizeof(XrCompositionLayerProjection));

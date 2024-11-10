@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "JKXR - Jedi Academy"
-#define MyAppVersion "1.0.22"
+#define MyAppVersion "1.1.27"
 #define MyAppPublisher "Team Beef VR"
 #define MyAppURL "https://www.patreon.com/teambeef"
 #define MyAppExeName "openjk_sp.x86_64.exe"
@@ -24,7 +24,7 @@ DisableProgramGroupPage=yes
 ;PrivilegesRequired=lowest
 OutputDir=C:\Dev\Quest\JKXR\JKXR-PCVR-Installer
 OutputBaseFilename=JKXR_JKA_Setup
-Compression=lzma
+Compression=zip
 SolidCompression=yes
 WizardStyle=modern
 AlwaysShowDirOnReadyPage=yes
@@ -40,6 +40,7 @@ Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{
 [Files]
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKA\{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKA\jagamex86_64.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKA\TeamBeefVR.bat"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKA\OpenAL32.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\JKA\rdsp-vanilla_x86_64.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "C:\Dev\Quest\JKXR\JKXR-PCVR-Installer\packaged_mods_credits.txt"; DestDir: "{app}"; Flags: ignoreversion

@@ -328,6 +328,7 @@ void VR_Init()
 	vr_turn_angle = Cvar_Get( "vr_turn_angle", "45", CVAR_ARCHIVE);
 	vr_positional_factor = Cvar_Get( "vr_positional_factor", "12", CVAR_ARCHIVE);
     vr_walkdirection = Cvar_Get( "vr_walkdirection", "1", CVAR_ARCHIVE);
+	vr_3rdperson_digital_direction = Cvar_Get( "vr_3rdperson_digital_direction", "1", CVAR_ARCHIVE);
 	vr_weapon_pitchadjust = Cvar_Get( "vr_weapon_pitchadjust", "-20.0", CVAR_ARCHIVE);
 	vr_saber_pitchadjust = Cvar_Get( "vr_saber_pitchadjust", "-13.36", CVAR_ARCHIVE);
     vr_virtual_stock = Cvar_Get( "vr_virtual_stock", "0", CVAR_ARCHIVE);
@@ -363,6 +364,10 @@ void VR_Init()
 	vr_align_weapons = Cvar_Get ("vr_align_weapons", "0", CVAR_ARCHIVE);
 	vr_refresh = Cvar_Get ("vr_refresh", "72", CVAR_ARCHIVE);
 	vr_super_sampling = Cvar_Get ("vr_super_sampling", "1.0", CVAR_ARCHIVE);
+	vr_engage_trigger = Cvar_Get("vr_engage_trigger", "0.7", CVAR_ARCHIVE);
+	vr_release_trigger = Cvar_Get("vr_release_trigger", "0.7", CVAR_ARCHIVE);
+	vr_engage_trigger_index = Cvar_Get("vr_engage_trigger_index", "0.7", CVAR_ARCHIVE);
+	vr_release_trigger_index = Cvar_Get("vr_release_trigger_index", "0.05", CVAR_ARCHIVE);
 
 	cvar_t *expanded_menu_enabled = Cvar_Get ("expanded_menu_enabled", "0", CVAR_ARCHIVE);
 	if (FS_FileExists("expanded_menu.pk3") || FS_BaseFileExists("expanded_menu.pk3")) {

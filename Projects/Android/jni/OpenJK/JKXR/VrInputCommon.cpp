@@ -15,6 +15,7 @@ cvar_t	*vr_turn_mode;
 cvar_t	*vr_turn_angle;
 cvar_t	*vr_positional_factor;
 cvar_t	*vr_walkdirection;
+cvar_t	*vr_3rdperson_digital_direction;
 cvar_t	*vr_weapon_pitchadjust;
 cvar_t	*vr_saber_pitchadjust;
 cvar_t	*vr_control_scheme;
@@ -47,6 +48,10 @@ cvar_t  *vr_use_gesture_boundary;
 cvar_t  *vr_align_weapons;
 cvar_t  *vr_refresh;
 cvar_t  *vr_super_sampling;
+cvar_t  *vr_engage_trigger;
+cvar_t  *vr_release_trigger;
+cvar_t  *vr_engage_trigger_index;
+cvar_t  *vr_release_trigger_index;
 
 ovrInputStateTrackedRemote leftTrackedRemoteState_old;
 ovrInputStateTrackedRemote leftTrackedRemoteState_new;
