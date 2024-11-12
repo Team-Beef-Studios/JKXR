@@ -2663,6 +2663,9 @@ static void CG_DrawVignette( void )
 		vec4_t black = {0.0, 0.0, 0.0, 1};
 		cgi_R_SetColor( black );
 
+		int drawingHUDOrid = cg.drawingHUD;
+		cg.drawingHUD = CG_HUD_ZOOM;
+
 		// sides
 		cgi_R_DrawStretchPic( 0, 0, x, screenHeight, 0, 0, 1, 1, cgs.media.whiteShader );
 		cgi_R_DrawStretchPic( screenWidth - x, 0, x, screenHeight, 0, 0, 1, 1, cgs.media.whiteShader );
@@ -2671,6 +2674,8 @@ static void CG_DrawVignette( void )
 		cgi_R_DrawStretchPic( x, screenHeight - y, screenWidth - x, y, 0, 0, 1, 1, cgs.media.whiteShader );
 		// vignette
 		cgi_R_DrawStretchPic( x, y, w, h, 0, 0, 1, 1, cgs.media.vignetteShader );
+
+		cg.drawingHUD = drawingHUDOrid;
 
 		cgi_R_SetColor( NULL );
 	}
