@@ -385,7 +385,7 @@ void CG_CaptionText( const char *str, int sound)
 }
 
 
-void CG_DrawCaptionText( bool inImmersiveCamera )
+void CG_DrawCaptionText( bool immersiveCinematicsEnabled )
 {
 	int		i;
 	int		x, y, w;
@@ -442,13 +442,13 @@ void CG_DrawCaptionText( bool inImmersiveCamera )
 	const bool bPrinting2Lines = !!(cg.captionText[ cg.captionTextCurrentLine+1 ][0]);
 	y = cg.captionTextY - ( (float)fontHeight * (bPrinting2Lines ? 1 : 0.5f));	// captionTextY was a centered Y pos, not a top one
 	y -= cgi_Language_IsAsian() ? 0 : 4;
-	if (inImmersiveCamera) {
+	if (in_camera && immersiveCinematicsEnabled) {
 		y -= 100;
 	}
 
 	for (i=	cg.captionTextCurrentLine;i< cg.captionTextCurrentLine + 2;++i)
 	{
-		w = cgi_R_Font_StrLenPixels(cg.captionText[i], cgs.media.qhFontSmall, fFontScale * FONT_SCALE);
+		w = cgi_R_Font_StrLenPixels(cg.captionText[i], cgs.media.qhFontSmall, in_camera && !immersiveCinematicsEnabled ? fFontScale * FONT_SCALE : fFontScale);
 		if (w)
 		{
 			int offset = w / 2;
@@ -766,7 +766,7 @@ void CG_DrawCenterString( void )
 		}
 		linebuffer[iOutIndex++] = '\0';
 
-		w = cgi_R_Font_StrLenPixels(linebuffer, cgs.media.qhFontSmall, FONT_SCALE);
+		w = cgi_R_Font_StrLenPixels(linebuffer, cgs.media.qhFontSmall, 1.0f);
 
 		int offset = w / 2;
 		int tempX = SCREEN_WIDTH / 2;

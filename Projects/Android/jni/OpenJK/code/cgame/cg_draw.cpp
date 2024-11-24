@@ -3575,7 +3575,7 @@ static float CG_DrawSnapshot( float y ) {
 	s = va( "time:%i snap:%i cmd:%i", cg.snap->serverTime,
 		cg.latestSnapshotNum, cgs.serverCommandSequence );
 
-	w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, FONT_SCALE);
+	w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, 1.0f);
 
 	int tempX = 635 - w;
 	int tempY = y+2;
@@ -3622,7 +3622,7 @@ static float CG_DrawFPS( float y ) {
 	fps = 1000 * FPS_FRAMES / total;
 
 	s = va( "%ifps", fps );
-	const int w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, FONT_SCALE);
+	const int w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, 1.0f);
 
 	int tempX = 635-xOffset - w;
 	int tempY = y+2;
@@ -3649,7 +3649,7 @@ static float CG_DrawTimer( float y ) {
 
 	s = va( "%i:%i%i", mins, tens, seconds );
 
-	w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, FONT_SCALE);
+	w = cgi_R_Font_StrLenPixels(s, cgs.media.qhFontSmall, 1.0f);
 
 	int tempX = 635 - w;
 	int tempY = y+2;
@@ -3688,7 +3688,7 @@ static void CG_DrawAmmoWarning( void ) {
 		//s = "LOW AMMO WARNING";
 	}
 
-	w = cgi_R_Font_StrLenPixels(text, cgs.media.qhFontSmall, FONT_SCALE);
+	w = cgi_R_Font_StrLenPixels(text, cgs.media.qhFontSmall, 1.0f);
 	int offset = w / 2;
 	int tempX = SCREEN_WIDTH / 2;
 	int tempY = 64;
@@ -4287,7 +4287,7 @@ static void CG_Draw2D( void )
 
 	CG_DrawScrollText();
 
-	CG_DrawCaptionText( in_camera && vr->immersive_cinematics );
+	CG_DrawCaptionText( vr->immersive_cinematics );
 
 	if ( in_camera )
 	{//still draw the saber clash flare, but nothing else
@@ -4465,7 +4465,7 @@ static void CG_Draw2D( void )
 			int x_pos = 0;
 			int offset = 0;
 			y_pos = 20;
-			w = cgi_R_Font_StrLenPixels(text,cgs.media.qhFontSmall, FONT_SCALE);
+			w = cgi_R_Font_StrLenPixels(text,cgs.media.qhFontSmall, 1.0f);
 			offset = w / 2;
 			x_pos = SCREEN_WIDTH / 2;
 
@@ -4482,7 +4482,7 @@ static void CG_Draw2D( void )
 		y_pos = 5;
 		gi.Cvar_VariableStringBuffer( "cg_WeaponPickupText", text, sizeof(text) );
 
-		w = cgi_R_Font_StrLenPixels(text,cgs.media.qhFontSmall, FONT_SCALE);
+		w = cgi_R_Font_StrLenPixels(text,cgs.media.qhFontSmall, 1.0f);
 		offset = w / 2;
 		x_pos = SCREEN_WIDTH / 2;
 
